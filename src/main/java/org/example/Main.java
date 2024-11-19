@@ -10,30 +10,36 @@ public class Main {
 
         while (true){
             printMenu();
-            int command = scanner.nextInt();
 
-            switch (command){
-                case 1:
-                    stepTracker.addNewNumberStepsPerDay();
-                    break;
+            if (scanner.hasNextInt()) {
+                int command = scanner.nextInt();
 
-                case 2:
-                    stepTracker.changeStepGoal();
-                    break;
+                switch (command){
+                    case 1:
+                        stepTracker.addNewNumberStepsPerDay();
+                        break;
 
-                case 3:
-                    stepTracker.printStatistic();
-                    //
-                    break;
+                    case 2:
+                        stepTracker.changeStepGoal();
+                        break;
 
-                case 4:
-                    System.out.println("Выход из приложения. До свидания!");
-                    return;
+                    case 3:
+                        stepTracker.printStatistic();
+                        break;
 
-                default:
-                    System.out.println("Такой команды не существует! Попробуйте снова.");
+                    case 4:
+                        System.out.println("Выход из приложения. До свидания!");
+                        return;
+
+                    default:
+                        System.out.println("Такой команды не существует! Попробуйте снова.");
+                }
+            } else {
+                System.out.println("Некорректный ввод, введите число от 1 до 4.");
+                scanner.next();
             }
         }
+
 
 
     }
